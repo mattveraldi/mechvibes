@@ -258,6 +258,12 @@ if (!gotTheLock) {
           },
         },
         {
+          label: 'Key presses panel',
+          click: function () {
+            openKeypressesWindow();
+          },
+        },
+        {
           label: 'Custom Folder',
           click: function () {
             shell.openItem(custom_dir);
@@ -391,6 +397,7 @@ app.on('quit', () => {
 });
 
 var editor_window = null;
+var keypress_window = null;
 
 function openEditorWindow() {
   if (editor_window) {
@@ -408,7 +415,7 @@ function openEditorWindow() {
     // parent: win,
     webPreferences: {
       // preload: path.join(__dirname, 'editor.js'),
-      nodeIntegration: true,
+      nodeIntegration: true
     },
   });
 
@@ -418,5 +425,35 @@ function openEditorWindow() {
 
   editor_window.on('closed', function () {
     editor_window = null;
+  });
+
+}
+
+function openKeypressesWindow() {
+  if (keypress_window) {
+    keypress_window.focus();
+    return;
+  }
+
+  keypress_window = new BrowserWindow({
+    width: 400,
+    height: 100,
+    // resizable: false,
+    // minimizable: false,
+    // fullscreenable: false,
+    // modal: true,
+    // parent: win,
+    webPreferences: {
+      // preload: path.join(__dirname, 'editor.js'),
+      nodeIntegration: true
+    },
+  });
+
+  // keypress_window.openDevTools();
+
+  keypress_window.loadFile('./src/keypress_window.html');
+
+  keypress_window.on('closed', function () {
+    keypress_window = null;
   });
 }

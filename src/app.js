@@ -438,7 +438,7 @@ function packsToOptions(packs, pack_list) {
 
       // pack current pressed key
       current_key_down = keycode;
-
+     
       // pack sprite id
       const sound_id = `keycode-${current_key_down}`;
 
