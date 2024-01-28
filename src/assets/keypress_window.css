@@ -1,4 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  width: 400px;
-  height: 100px;
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  height: 100px !important;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+#keypress_panel {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
 }

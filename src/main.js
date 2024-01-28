@@ -438,7 +438,11 @@ function openKeypressesWindow() {
   keypress_window = new BrowserWindow({
     width: 400,
     height: 100,
-    // resizable: false,
+    alwaysOnTop: true,
+    autoHideMenuBar: true,
+    frame: false,
+    movable: true,
+    resizable: true,
     // minimizable: false,
     // fullscreenable: false,
     // modal: true,
@@ -448,8 +452,7 @@ function openKeypressesWindow() {
       nodeIntegration: true
     },
   });
-
-  // keypress_window.openDevTools();
+  keypress_window.openDevTools();
 
   keypress_window.loadFile('./src/keypress_window.html');
 
